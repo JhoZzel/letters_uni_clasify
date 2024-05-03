@@ -7,7 +7,7 @@ import numpy as np
 app = Flask(__name__)
 
 # Ruta al modelo .h5 (relativa al directorio actual)
-model_path = os.path.join(os.path.dirname(__file__), 'model.h5')
+model_path = os.path.join(os.path.dirname(__file__), 'modelo.h5')
 model = load_model(model_path)  # Carga el modelo previamente entrenado
 
 @app.route("/")
