@@ -5,7 +5,10 @@ from skimage import io, transform
 import numpy as np
 
 app = Flask(__name__)
-model = load_model('ruta/a/tu/modelo.h5')  # Carga tu modelo previamente entrenado
+
+# Ruta al modelo .h5 (relativa al directorio actual)
+model_path = os.path.join(os.path.dirname(__file__), 'model.h5')
+model = load_model(model_path)  # Carga el modelo previamente entrenado
 
 @app.route("/")
 def home():
