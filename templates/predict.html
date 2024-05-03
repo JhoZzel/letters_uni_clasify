@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clasificador de Letras</title>
+</head>
+<body>
+    <div align="left">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Uni-logo_transparente_granate.png" width="300"/>
+    </div>
+    <div align="center">
+        <h1>Predicción de Letra</h1>
+        <form method="post" action="/predict" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" onchange="previewImage(event)" required><br><br>
+            <img id="preview" src="#" alt="Preview" width="200" style="display:none"><br><br>
+            <input type="submit" value="Predecir">
+        </form>
+        <p id="prediction"></p>
+    </div>
+
+    <script>
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var preview = document.getElementById('preview');
+                preview.src = reader.result;
+                preview.style.display = 'inline';
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+</body>
+</html>
